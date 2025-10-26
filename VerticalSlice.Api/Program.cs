@@ -1,20 +1,19 @@
+using System.Text.Json.Serialization;
 using FastEndpoints;
 using Todo.Application.Extensions;
-using Todo.Infrastructure.Extensions;
-using Weather.Infrastructure.Extensions;
 using Weather.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+});
 
 builder.AddRedisDistributedCache("cache");
 builder.AddRedisOutputCache("cache");
 
-// builder.Services.AddLogging(logging =>
-// {
-//     logging.AddFilter("Microsoft.AspNetCore.OutputCaching", LogLevel.Debug);
-// });
 builder.Services.AddWeatherEndpoints();
 builder.AddWeatherServices();
 
