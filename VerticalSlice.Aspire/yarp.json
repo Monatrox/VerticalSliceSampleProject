@@ -1,0 +1,45 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ReverseProxy": {
+    "Routes": {
+      "weather": {
+        "ClusterId": "weather",
+        "Match": {
+          "Path": "/weather/{**catch-all}"
+        },
+        "Transforms": [
+        ]
+      },
+      "todo": {
+        "ClusterId": "todo",
+        "Match": {
+          "Path": "/todo/{**catch-all}"
+        },
+        "Transforms": [
+        ]
+      }
+    },
+    "Clusters": {
+      "weather": {
+        "Destinations": {
+          "instance-one": {
+            "Address": "http://verticalslice-api"
+          }
+        }
+      },
+      "todo": {
+        "Destinations": {
+          "instance-one": {
+            "Address": "http://verticalslice-api"
+          }
+        }
+      }
+    }
+  }
+}

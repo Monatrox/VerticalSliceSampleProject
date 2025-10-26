@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+        <UserSecretsId>d229b1eb-0c2e-4dd4-a36e-7dd951324d4a</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Dashboard.Sdk.win-x64" Version="9.5.1" />
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.1" />
+        <PackageReference Include="Aspire.Hosting.Kafka" Version="9.5.1" />
+        <PackageReference Include="Aspire.Hosting.Orchestration.win-x64" Version="9.5.1" />
+        <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.5.1" />
+        <PackageReference Include="Aspire.Hosting.Valkey" Version="9.5.1" />
+        <PackageReference Include="Aspire.Hosting.Yarp" Version="9.3.1-preview.1.25305.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\VerticalSlice.Api\VerticalSlice.Api.csproj" />
+      <ProjectReference Include="..\VerticalSlice.MigrationService\VerticalSlice.MigrationService.csproj" />
+    </ItemGroup>
+
+</Project>

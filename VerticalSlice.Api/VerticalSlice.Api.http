@@ -1,0 +1,9 @@
+@API = https://localhost:7194
+
+###
+GET {{API}}/weather/44444444-4444-4444-4444-444444444445
+Accept: application/json
+
+###
+GET {{API}}/todos
+Accept: application/json

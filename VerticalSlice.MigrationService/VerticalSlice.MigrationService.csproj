@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-VerticalSlice.MigrationService-a8c65463-dbe2-4d12-b2ee-2d0ffad1459a</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Npgsql" Version="9.5.1" />
+        <PackageReference Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.5.1" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Todo.Infrastructure\Todo.Infrastructure.csproj" />
+      <ProjectReference Include="..\VerticalSlice.ServiceDefaults\VerticalSlice.ServiceDefaults.csproj" />
+      <ProjectReference Include="..\Weather.Infrastructure\Weather.Infrastructure.csproj" />
+    </ItemGroup>
+</Project>

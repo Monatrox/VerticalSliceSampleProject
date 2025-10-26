@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Events\" />
+      <Folder Include="Handlers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FastEndpoints" Version="7.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\VerticalSlice.Shared\VerticalSlice.Shared.csproj" />
+      <ProjectReference Include="..\Weather.Domain\Weather.Domain.csproj" />
+      <ProjectReference Include="..\Weather.Infrastructure\Weather.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
