@@ -1,7 +1,8 @@
-using VerticalSlice.Aspire;
+using VerticalSlice.AppHost;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
 builder.WithDistributedServices();
 
-builder.Build().Run();
+var app = builder.Build();
+await app.RunAsync();

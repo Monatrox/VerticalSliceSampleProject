@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E1B4C335
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.Api", "VerticalSlice.Api\VerticalSlice.Api.csproj", "{0050CAE6-52DB-4682-91CF-D495ED3D7A0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.Aspire", "VerticalSlice.Aspire\VerticalSlice.Aspire.csproj", "{666DAF4F-FB3C-4E08-B59E-554E820BE801}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.AppHost", "VerticalSlice.AppHost\VerticalSlice.AppHost.csproj", "{666DAF4F-FB3C-4E08-B59E-554E820BE801}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Weather", "Weather", "{614704CD-2CD7-4A1A-9CFF-FBFAD4757EEF}"
 EndProject
@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.Shared", "Ver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.MigrationService", "VerticalSlice.MigrationService\VerticalSlice.MigrationService.csproj", "{0125C705-87D1-4B4B-B7C1-D9A69F045F80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.IntegrationTests", "VerticalSlice.IntegrationTests\VerticalSlice.IntegrationTests.csproj", "{355B87D6-1BDB-4FC3-A72B-E369A1F008E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerticalSlice.Tests", "VerticalSlice.Tests\VerticalSlice.Tests.csproj", "{355B87D6-1BDB-4FC3-A72B-E369A1F008E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Application", "Todo.Application\Todo.Application.csproj", "{3488A060-A03E-41FB-8B62-F31B73257BDE}"
 EndProject

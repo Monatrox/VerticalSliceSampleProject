@@ -1,7 +1,7 @@
 ﻿using Confluent.Kafka;
 using Confluent.Kafka.Admin;
 
-namespace VerticalSlice.Aspire;
+namespace VerticalSlice.AppHost;
 
 public static class ApplicationBuilderExtensions
 {
@@ -34,10 +34,11 @@ public static class ApplicationBuilderExtensions
         //         throw;
         //     }
         // });
-        
+        var isIntegrationTest = builder.Configuration["INTEGRATION__TESTS"] == "true";
         var postgres = builder
-            .AddPostgres("postgres")
-            .WithLifetime(ContainerLifetime.Persistent);
+            .AddPostgres("postgres");
+        if (!isIntegrationTest)
+            postgres.WithLifetime(ContainerLifetime.Persistent);
         
         var weatherDb = postgres.AddDatabase("weatherdb");
         var todoDb = postgres.AddDatabase("tododb");
