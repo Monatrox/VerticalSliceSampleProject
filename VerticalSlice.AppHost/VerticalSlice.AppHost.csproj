@@ -23,6 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Order.Messaging\Order.Messaging.csproj" />
       <ProjectReference Include="..\VerticalSlice.Api\VerticalSlice.Api.csproj" />
       <ProjectReference Include="..\VerticalSlice.MigrationService\VerticalSlice.MigrationService.csproj" />
     </ItemGroup>

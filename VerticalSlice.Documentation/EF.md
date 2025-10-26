@@ -11,6 +11,7 @@ dotnet ef migrations add InitialCreate --project ../Todo.Infrastructure --startu
 ```
 ### Create Initial Migration for Todo App
 ```bash
+dotnet ef migrations add InitialCreate --project ../Order.Infrastructure --startup-project ../Order.Infrastructure --output-dir ../Order.Infrastructure/Persistence/Migrations --context OrderDbContext
 ```
 
 

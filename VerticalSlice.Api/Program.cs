@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using FastEndpoints;
 using Todo.Application.Extensions;
 using Weather.Application.Extensions;
+using Order.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,9 @@ builder.AddWeatherServices();
 
 builder.Services.AddTodoEndpoints();
 builder.AddTodoServices();
+
+builder.Services.AddOrderEndpoints();
+builder.AddOrderServices();
 
 builder.Services.AddOpenApi();
 

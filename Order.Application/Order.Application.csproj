@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Endpoints\" />
+      <Folder Include="Providers\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+        <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.10\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Order.Infrastructure\Order.Infrastructure.csproj" />
+      <ProjectReference Include="..\Order.Public\Order.Public.csproj" />
+      <ProjectReference Include="..\VerticalSlice.Shared\VerticalSlice.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FastEndpoints" Version="7.1.0" />
+      <PackageReference Include="Marten" Version="8.13.2" />
+      <PackageReference Include="Marten.AspNetCore" Version="8.13.2" />
+      <PackageReference Include="WolverineFx" Version="5.0.0" />
+      <PackageReference Include="WolverineFx.Marten" Version="5.0.0" />
+    </ItemGroup>
+
+</Project>

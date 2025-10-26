@@ -42,24 +42,32 @@ public static class ApplicationBuilderExtensions
         
         var weatherDb = postgres.AddDatabase("weatherdb");
         var todoDb = postgres.AddDatabase("tododb");
-
+        var orderDb = postgres.AddDatabase("orderdb");
+        
         var migrations = builder.AddProject<Projects.VerticalSlice_MigrationService>("verticalslice-migrationservice")
             .WithReference(weatherDb)
             .WithReference(todoDb)
             .WaitFor(weatherDb)
             .WaitFor(todoDb);
         
+        var orderWorker = builder.AddProject<Projects.Order_Messaging>("order-worker")
+            .WithReference(orderDb)
+            .WaitFor(orderDb);
+        
         var verticalSliceApi = builder.AddProject<Projects.VerticalSlice_Api>("verticalslice-api")
             .WithReference(weatherDb)
             .WithReference(todoDb)
             .WithReference(cache)
+            .WithReference(orderDb)
             .WithEnvironment("Services__WeatherApi", "http://verticalslice-api")
             .WithEnvironment("Services__TodoApi", "http://verticalslice-api")
             .WithEnvironment("ConnectionStrings__Database", postgres)
             .WaitFor(weatherDb)
             .WaitFor(todoDb)
             .WaitFor(cache)
-            .WaitFor(migrations);
+            .WaitFor(migrations)
+            .WaitFor(orderDb)
+            .WaitFor(orderWorker);
 
         // var yarpProxy = builder
         //     .AddYarp("gateway")
