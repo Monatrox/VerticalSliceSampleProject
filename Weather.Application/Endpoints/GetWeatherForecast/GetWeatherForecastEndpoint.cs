@@ -1,20 +1,16 @@
 ﻿using System.Net;
 using FastEndpoints;
 using Microsoft.Extensions.DependencyInjection;
+using Todo.Public.Abstractions;
+using Todo.Public.Providers;
 using VerticalSlice.Shared.Objects;
 using Weather.Infrastructure.Services;
 
 namespace Weather.Application.Endpoints.GetWeatherForecast;
 
-public class GetWeatherForecastEndpoint : Endpoint<GetWeatherForecastRequest, GetWeatherForecastResponse>
+public class GetWeatherForecastEndpoint(IWeatherForecastService service, ITodoItemProvider todoItemProvider)
+    : Endpoint<GetWeatherForecastRequest, GetWeatherForecastResponse>
 {
-    private readonly IWeatherForecastService _service;
-
-    public GetWeatherForecastEndpoint(IWeatherForecastService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Get("/weather/{id}");
@@ -28,8 +24,9 @@ public class GetWeatherForecastEndpoint : Endpoint<GetWeatherForecastRequest, Ge
     {
         try
         {
-            var data = await _service.GetByIdAsync(request.Id, ct);
-        
+            var data = await service.GetByIdAsync(request.Id, ct);
+            var todoItems = await todoItemProvider.GetAllAsync(ct);
+            
             return data is null 
                 ? new GetWeatherForecastResponse(HttpStatusCode.NotFound)
                 : new GetWeatherForecastResponse(data);

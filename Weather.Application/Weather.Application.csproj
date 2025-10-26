@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Todo.Public\Todo.Public.csproj" />
       <ProjectReference Include="..\VerticalSlice.Shared\VerticalSlice.Shared.csproj" />
       <ProjectReference Include="..\Weather.Domain\Weather.Domain.csproj" />
       <ProjectReference Include="..\Weather.Infrastructure\Weather.Infrastructure.csproj" />

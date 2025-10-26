@@ -5,15 +5,8 @@ using Weather.Domain.Objects;
 
 namespace Weather.Application.Endpoints.CreateLocation;
 
-public class CreateLocationEndpoint : Endpoint<CreateLocationRequest, CreateLocationResponse>
+public class CreateLocationEndpoint(ILocationService service) : Endpoint<CreateLocationRequest, CreateLocationResponse>
 {
-    private readonly ILocationService _service;
-
-    public CreateLocationEndpoint(ILocationService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Post("/locations");
@@ -30,7 +23,7 @@ public class CreateLocationEndpoint : Endpoint<CreateLocationRequest, CreateLoca
                 State = request.State
             };
 
-            var data = await _service.CreateAsync(location, ct);
+            var data = await service.CreateAsync(location, ct);
             
             return new CreateLocationResponse(data);
         }

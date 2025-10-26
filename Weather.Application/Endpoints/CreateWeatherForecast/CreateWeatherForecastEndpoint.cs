@@ -5,15 +5,9 @@ using Weather.Domain.Objects;
 
 namespace Weather.Application.Endpoints.CreateWeatherForecast;
 
-public class CreateWeatherForecastEndpoint : Endpoint<CreateWeatherForecastRequest, CreateWeatherForecastResponse>
+public class CreateWeatherForecastEndpoint(IWeatherForecastService service)
+    : Endpoint<CreateWeatherForecastRequest, CreateWeatherForecastResponse>
 {
-    private readonly IWeatherForecastService _service;
-
-    public CreateWeatherForecastEndpoint(IWeatherForecastService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Post("/weather");
@@ -32,7 +26,7 @@ public class CreateWeatherForecastEndpoint : Endpoint<CreateWeatherForecastReque
                 Summary = request.Summary
             };
 
-            var data = await _service.CreateAsync(forecast, ct);
+            var data = await service.CreateAsync(forecast, ct);
             
             return new CreateWeatherForecastResponse(data);
         }
