@@ -2,7 +2,6 @@
 using FastEndpoints;
 using Microsoft.Extensions.DependencyInjection;
 using Todo.Public.Abstractions;
-using Todo.Public.Providers;
 using VerticalSlice.Shared.Objects;
 using Weather.Infrastructure.Services;
 

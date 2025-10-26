@@ -3,8 +3,6 @@ using FastEndpoints;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Todo.Public.Abstractions;
-using Todo.Public.Providers;
 using Weather.Infrastructure.Persistence;
 using Weather.Infrastructure.Services;
 
@@ -35,9 +33,6 @@ public static class WeatherServiceExtensions
         
         builder.Services.AddScoped<IWeatherForecastService, WeatherForecastService>();
         builder.Services.AddScoped<ILocationService, LocationService>();
-        
-        // Add Providers for Integration 
-        builder.Services.AddScoped<ITodoItemProvider, TodoItemProvider>();
         
         return builder.Services;
     }

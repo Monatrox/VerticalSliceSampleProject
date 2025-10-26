@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Todo.Infrastructure.Persistence;
 using Todo.Infrastructure.Services;
+using Todo.Public.Abstractions;
+using Todo.Public.Providers;
 
 namespace Todo.Application.Extensions;
 
@@ -31,6 +33,9 @@ public static class TodoServiceExtensions
             });
         
         builder.Services.AddScoped<ITodoItemService, TodoItemService>();
+        
+        // Add Providers
+        builder.Services.AddScoped<ITodoItemProvider, TodoItemProvider>();
         
         return builder.Services;
     }
