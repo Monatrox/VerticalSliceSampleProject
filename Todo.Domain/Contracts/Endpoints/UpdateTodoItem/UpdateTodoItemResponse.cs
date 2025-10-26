@@ -2,7 +2,7 @@
 using VerticalSlice.Shared.Objects;
 using Todo.Domain.Objects;
 
-namespace Todo.Application.Endpoints.UpdateTodoItem;
+namespace Todo.Domain.Contracts.Endpoints.UpdateTodoItem;
 
 public class UpdateTodoItemResponse : ApiResponse<TodoItem>
 {

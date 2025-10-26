@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
 using Shouldly;
-using Todo.Application.Endpoints.GetAllTodos;
+using Todo.Domain.Contracts.Endpoints.GetAllTodos;
 using VerticalSlice.Tests.Fixtures;
 
 namespace VerticalSlice.Tests.Integration;
@@ -14,7 +14,7 @@ public class TodoIntegrationTests(AppHostFixture fixture)
     {
         // Act
         var response = await fixture.Client!.GetAsync("/todos");
-        var result = await response.Content.ReadFromJsonAsync<GetAllTodosResponse>();
+        var result = await response.Content.ReadFromJsonAsync<GetAllTodoItemsResponse>();
 
         // Assert
         response.StatusCode.ShouldBe(HttpStatusCode.OK);

@@ -1,19 +1,13 @@
 ﻿using System.Net;
 using FastEndpoints;
+using Todo.Domain.Contracts.Endpoints.CreateTodoItem;
 using Todo.Infrastructure.Services;
 using Todo.Domain.Objects;
 
-namespace Todo.Application.Endpoints.CreateTodoItem;
+namespace Todo.Application.Endpoints;
 
-public class CreateTodoItemEndpoint : Endpoint<CreateTodoItemRequest, CreateTodoItemResponse>
+public class CreateTodoItemEndpoint(ITodoItemService service) : Endpoint<CreateTodoItemRequest, CreateTodoItemResponse>
 {
-    private readonly ITodoItemService _service;
-
-    public CreateTodoItemEndpoint(ITodoItemService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Post("/todos");
@@ -34,7 +28,7 @@ public class CreateTodoItemEndpoint : Endpoint<CreateTodoItemRequest, CreateTodo
                 CreatedAt = DateTime.UtcNow
             };
 
-            var data = await _service.CreateAsync(todoItem, ct);
+            var data = await service.CreateAsync(todoItem, ct);
             
             return new CreateTodoItemResponse(data);
         }

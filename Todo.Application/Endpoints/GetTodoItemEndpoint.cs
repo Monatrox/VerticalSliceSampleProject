@@ -1,18 +1,12 @@
 ﻿using System.Net;
 using FastEndpoints;
+using Todo.Domain.Contracts.Endpoints.GetTodoItem;
 using Todo.Infrastructure.Services;
 
-namespace Todo.Application.Endpoints.GetTodoItem;
+namespace Todo.Application.Endpoints;
 
-public class GetTodoItemEndpoint : Endpoint<GetTodoItemRequest, GetTodoItemResponse>
+public class GetTodoItemEndpoint(ITodoItemService service) : Endpoint<GetTodoItemRequest, GetTodoItemResponse>
 {
-    private readonly ITodoItemService _service;
-
-    public GetTodoItemEndpoint(ITodoItemService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Get("/todos/{id}");
@@ -23,7 +17,7 @@ public class GetTodoItemEndpoint : Endpoint<GetTodoItemRequest, GetTodoItemRespo
     {
         try
         {
-            var data = await _service.GetByIdAsync(request.Id, ct);
+            var data = await service.GetByIdAsync(request.Id, ct);
         
             return data is null 
                 ? new GetTodoItemResponse(HttpStatusCode.NotFound)

@@ -1,4 +1,4 @@
-﻿namespace Todo.Application.Endpoints.DeleteTodoItem;
+﻿namespace Todo.Domain.Contracts.Endpoints.DeleteTodoItem;
 
 public class DeleteTodoItemRequest
 {

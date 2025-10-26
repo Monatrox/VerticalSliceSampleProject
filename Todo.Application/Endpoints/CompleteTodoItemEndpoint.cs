@@ -1,18 +1,13 @@
 ﻿using System.Net;
 using FastEndpoints;
+using Todo.Domain.Contracts.Endpoints.CompleteTodoItem;
 using Todo.Infrastructure.Services;
 
-namespace Todo.Application.Endpoints.CompleteTodoItem;
+namespace Todo.Application.Endpoints;
 
-public class CompleteTodoItemEndpoint : Endpoint<CompleteTodoItemRequest, CompleteTodoItemResponse>
+public class CompleteTodoItemEndpoint(ITodoItemService service)
+    : Endpoint<CompleteTodoItemRequest, CompleteTodoItemResponse>
 {
-    private readonly ITodoItemService _service;
-
-    public CompleteTodoItemEndpoint(ITodoItemService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Patch("/todos/{id}/complete");
@@ -23,7 +18,7 @@ public class CompleteTodoItemEndpoint : Endpoint<CompleteTodoItemRequest, Comple
     {
         try
         {
-            var data = await _service.CompleteAsync(request.Id, ct);
+            var data = await service.CompleteAsync(request.Id, ct);
             
             return data is null 
                 ? new CompleteTodoItemResponse(HttpStatusCode.NotFound)

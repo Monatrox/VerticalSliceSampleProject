@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using VerticalSlice.Shared.Objects;
 
-namespace Todo.Application.Endpoints.DeleteTodoItem;
+namespace Todo.Domain.Contracts.Endpoints.DeleteTodoItem;
 
 public class DeleteTodoItemResponse : ApiResponse<bool>
 {

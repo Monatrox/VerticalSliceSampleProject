@@ -1,4 +1,4 @@
-﻿namespace Todo.Application.Endpoints.CreateTodoItem;
+﻿namespace Todo.Domain.Contracts.Endpoints.CreateTodoItem;
 
 public class CreateTodoItemRequest
 {

@@ -1,18 +1,12 @@
 ﻿using System.Net;
 using FastEndpoints;
+using Todo.Domain.Contracts.Endpoints.DeleteTodoItem;
 using Todo.Infrastructure.Services;
 
-namespace Todo.Application.Endpoints.DeleteTodoItem;
+namespace Todo.Application.Endpoints;
 
-public class DeleteTodoItemEndpoint : Endpoint<DeleteTodoItemRequest, DeleteTodoItemResponse>
+public class DeleteTodoItemEndpoint(ITodoItemService service) : Endpoint<DeleteTodoItemRequest, DeleteTodoItemResponse>
 {
-    private readonly ITodoItemService _service;
-
-    public DeleteTodoItemEndpoint(ITodoItemService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Delete("/todos/{id}");
@@ -23,7 +17,7 @@ public class DeleteTodoItemEndpoint : Endpoint<DeleteTodoItemRequest, DeleteTodo
     {
         try
         {
-            var success = await _service.DeleteAsync(request.Id, ct);
+            var success = await service.DeleteAsync(request.Id, ct);
             
             return success 
                 ? new DeleteTodoItemResponse(true)

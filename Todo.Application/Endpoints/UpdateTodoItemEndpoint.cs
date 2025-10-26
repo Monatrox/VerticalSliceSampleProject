@@ -1,19 +1,13 @@
 ﻿using System.Net;
 using FastEndpoints;
+using Todo.Domain.Contracts.Endpoints.UpdateTodoItem;
 using Todo.Infrastructure.Services;
 using Todo.Domain.Objects;
 
-namespace Todo.Application.Endpoints.UpdateTodoItem;
+namespace Todo.Application.Endpoints;
 
-public class UpdateTodoItemEndpoint : Endpoint<UpdateTodoItemRequest, UpdateTodoItemResponse>
+public class UpdateTodoItemEndpoint(ITodoItemService service) : Endpoint<UpdateTodoItemRequest, UpdateTodoItemResponse>
 {
-    private readonly ITodoItemService _service;
-
-    public UpdateTodoItemEndpoint(ITodoItemService service)
-    {
-        _service = service;
-    }
-
     public override void Configure()
     {
         Put("/todos/{id}");
@@ -33,7 +27,7 @@ public class UpdateTodoItemEndpoint : Endpoint<UpdateTodoItemRequest, UpdateTodo
                 IsCompleted = request.IsCompleted
             };
 
-            var data = await _service.UpdateAsync(request.Id, todoItem, ct);
+            var data = await service.UpdateAsync(request.Id, todoItem, ct);
             
             return data is null 
                 ? new UpdateTodoItemResponse(HttpStatusCode.NotFound)

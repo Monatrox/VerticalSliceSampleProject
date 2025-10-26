@@ -2,7 +2,7 @@
 using VerticalSlice.Shared.Objects;
 using Todo.Domain.Objects;
 
-namespace Todo.Application.Endpoints.CreateTodoItem;
+namespace Todo.Domain.Contracts.Endpoints.CreateTodoItem;
 
 public class CreateTodoItemResponse : ApiResponse<TodoItem>
 {

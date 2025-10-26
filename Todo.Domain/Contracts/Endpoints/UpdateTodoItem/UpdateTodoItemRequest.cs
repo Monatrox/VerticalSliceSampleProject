@@ -1,4 +1,4 @@
-﻿namespace Todo.Application.Endpoints.UpdateTodoItem;
+﻿namespace Todo.Domain.Contracts.Endpoints.UpdateTodoItem;
 
 public class UpdateTodoItemRequest
 {

@@ -1,4 +1,4 @@
-﻿namespace Todo.Application.Endpoints.GetTodoItem;
+﻿namespace Todo.Domain.Contracts.Endpoints.GetTodoItem;
 
 public class GetTodoItemRequest
 {

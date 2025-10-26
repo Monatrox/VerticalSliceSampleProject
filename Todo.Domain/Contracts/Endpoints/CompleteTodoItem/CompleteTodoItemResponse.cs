@@ -2,7 +2,7 @@
 using VerticalSlice.Shared.Objects;
 using Todo.Domain.Objects;
 
-namespace Todo.Application.Endpoints.CompleteTodoItem;
+namespace Todo.Domain.Contracts.Endpoints.CompleteTodoItem;
 
 public class CompleteTodoItemResponse : ApiResponse<TodoItem>
 {
