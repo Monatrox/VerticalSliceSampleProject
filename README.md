@@ -1,8 +1,11 @@
 # VerticalSliceSampleProject
 
+> [!NOTE]
+> While the code in this project wasn't entirely generated with AI, nearly this entire readme WAS generated with AI. Take it all with a grain of salt. I don't recommend using this as a proper template, so read that into all of the advice and information given below. This project was used as a playground to mess around with the idea of demonstrating a vertical slice architecture. I don't recommend using it in production as it is now. 
+
 ## Overview
 
-This project uses a weak **Vertical Slice Architecture** where each feature module (e.g., Weather, Todo) is organized into four distinct layers. Each module is self-contained and focused on a specific business domain, allowing teams to work independently and deploy features incrementally. Overall, it's a very quick and dirty modular monolith architecture mainly for demonstration purposes. Real production applications would require some real thought, you wouldn't want to copy this structure. 
+This project uses a somewhat weak **Vertical Slice Architecture** where each feature module (e.g., Weather, Todo) is organized into four distinct layers. Each module is self-contained and focused on a specific business domain, allowing teams to work independently and deploy features incrementally. Overall, it's a very quick and dirty modular monolith architecture mainly for demonstration purposes. Real production applications would require some real thought, you wouldn't want to copy this structure. 
 
 ## Module Layers
 
