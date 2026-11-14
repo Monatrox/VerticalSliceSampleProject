@@ -1,7 +1,7 @@
 # VerticalSliceSampleProject
 
 > [!NOTE]
-> While the code in this project wasn't entirely generated with AI, nearly this entire readme WAS generated with AI. Take it all with a grain of salt. I don't recommend using this as a proper template, so read that into all of the advice and information given below. This project was used as a playground to mess around with the idea of demonstrating a vertical slice architecture. I don't recommend using it in production as it is now. 
+> While the code in this project wasn't entirely generated with AI, nearly this entire readme WAS generated with AI. Take it all with a grain of salt. I don't recommend using this as a proper template, so read that into all of the advice and information given below. This project was used as a playground to mess around with the idea of demonstrating a vertical slice architecture. I don't recommend using it in production as it is now. Since building this, I've change quite a bit about how I prefer to break down each module, how they integrate together, and how we define what things actually are and what should be pulled out into a module in the first place. 
 
 ## Overview
 
