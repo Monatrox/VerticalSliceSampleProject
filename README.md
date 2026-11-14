@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project uses a **Vertical Slice Architecture** where each feature module (e.g., Weather, Todo) is organized into four distinct layers. Each module is self-contained and focused on a specific business domain, allowing teams to work independently and deploy features incrementally.
+This project uses a weak **Vertical Slice Architecture** where each feature module (e.g., Weather, Todo) is organized into four distinct layers. Each module is self-contained and focused on a specific business domain, allowing teams to work independently and deploy features incrementally. Overall, it's a very quick and dirty modular monolith architecture mainly for demonstration purposes. Real production applications would require some real thought, you wouldn't want to copy this structure. 
 
 ## Module Layers
 
